@@ -17,6 +17,4 @@ all: main.s
 	arm-none-eabi-objdump -D -x arm-none-eabi-gcc_build/main.elf > arm-none-eabi-gcc_build/main.s
 
 clean:
-	rm gcc_build/*
-	rm avr-gcc_build/*
-	rm arm-none-eabi-gcc_build/*
+	rm *_build/*
