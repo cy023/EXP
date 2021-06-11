@@ -8,4 +8,4 @@ all: main.s
 	avr-objdump -t main.elf > main.sym
 
 clean:
-	rm *.i *.s *.elf *.map *.sym
+	rm *.i *.s *.o *.elf *.map *.sym
