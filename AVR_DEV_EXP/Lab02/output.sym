@@ -1,0 +1,44 @@
+
+output.elf:     file format elf32-avr
+
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00800060 l    d  .data	00000000 .data
+00000000 l    d  .comment	00000000 .comment
+00000000 l    df *ABS*	00000000 main.c
+0000003e l       *ABS*	00000000 __SP_H__
+0000003d l       *ABS*	00000000 __SP_L__
+0000003f l       *ABS*	00000000 __SREG__
+00000000 l       *ABS*	00000000 __tmp_reg__
+00000001 l       *ABS*	00000000 __zero_reg__
+00000000 l    df *ABS*	00000000 lib.c
+0000003e l       *ABS*	00000000 __SP_H__
+0000003d l       *ABS*	00000000 __SP_L__
+0000003f l       *ABS*	00000000 __SREG__
+00000000 l       *ABS*	00000000 __tmp_reg__
+00000001 l       *ABS*	00000000 __zero_reg__
+0000ffa0 g       *ABS*	00000000 __DATA_REGION_LENGTH__
+00000000 g       *ABS*	00000000 __TEXT_REGION_ORIGIN__
+00000000 g       .text	00000000 __trampolines_start
+00000054 g       .text	00000000 _etext
+00000054 g       *ABS*	00000000 __data_load_end
+00000000 g       .text	00000000 __trampolines_end
+00000054 g       *ABS*	00000000 __data_load_start
+00000000 g       .text	00000000 __dtors_end
+00000400 g       *ABS*	00000000 __LOCK_REGION_LENGTH__
+00810000 g       .data	00000000 __eeprom_end
+00000400 g       *ABS*	00000000 __SIGNATURE_REGION_LENGTH__
+00000000 g       .text	00000000 __ctors_start
+00000000 g     F .text	00000026 main
+00800060 g       *ABS*	00000000 __DATA_REGION_ORIGIN__
+00000400 g       *ABS*	00000000 __USER_SIGNATURE_REGION_LENGTH__
+00000026 g     F .text	0000002e func
+00000000 g       .text	00000000 __dtors_start
+00000000 g       .text	00000000 __ctors_end
+00800060 g       .data	00000000 _edata
+00800060 g       .data	00000000 _end
+00010000 g       *ABS*	00000000 __EEPROM_REGION_LENGTH__
+00000400 g       *ABS*	00000000 __FUSE_REGION_LENGTH__
+00002000 g       *ABS*	00000000 __TEXT_REGION_LENGTH__
+
+

@@ -1,0 +1,17 @@
+
+lib.o:     file format elf32-avr
+
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 lib.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+0000003e l       *ABS*	00000000 __SP_H__
+0000003d l       *ABS*	00000000 __SP_L__
+0000003f l       *ABS*	00000000 __SREG__
+00000000 l       *ABS*	00000000 __tmp_reg__
+00000001 l       *ABS*	00000000 __zero_reg__
+00000000 l    d  .comment	00000000 .comment
+00000000 g     F .text	0000002e func
+
+
