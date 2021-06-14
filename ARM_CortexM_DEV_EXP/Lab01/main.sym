@@ -1,0 +1,97 @@
+
+main.elf:     file format elf32-littlearm
+
+SYMBOL TABLE:
+00008000 l    d  .init	00000000 .init
+00008018 l    d  .text	00000000 .text
+0000864c l    d  .fini	00000000 .fini
+00008664 l    d  .rodata	00000000 .rodata
+00008668 l    d  .ARM.exidx	00000000 .ARM.exidx
+00008670 l    d  .eh_frame	00000000 .eh_frame
+00018674 l    d  .init_array	00000000 .init_array
+0001867c l    d  .fini_array	00000000 .fini_array
+00018680 l    d  .data	00000000 .data
+00018ac0 l    d  .bss	00000000 .bss
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00018af4 l    d  .noinit	00000000 .noinit
+00000000 l    df *ABS*	00000000 /usr/lib/gcc/arm-none-eabi/9.2.1/crti.o
+00000000 l    df *ABS*	00000000 /usr/lib/gcc/arm-none-eabi/9.2.1/crtn.o
+00000000 l    df *ABS*	00000000 __call_atexit.c
+00008018 l     F .text	00000028 register_fini
+00000000 l    df *ABS*	00000000 crtstuff.c
+00008670 l     O .eh_frame	00000000 
+00008040 l     F .text	00000000 deregister_tm_clones
+0000806c l     F .text	00000000 register_tm_clones
+000080a4 l     F .text	00000000 __do_global_dtors_aux
+00018ac0 l       .bss	00000001 completed.6737
+0001867c l     O .fini_array	00000000 __do_global_dtors_aux_fini_array_entry
+000080e8 l     F .text	00000000 frame_dummy
+00018ac4 l       .bss	00000018 object.6742
+00018678 l     O .init_array	00000000 __frame_dummy_init_array_entry
+00000000 l    df *ABS*	00000000 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/crt0.o
+00000000 l    df *ABS*	00000000 main.c
+00018ae0 l       .bss	00000004 global_static_uninit_var
+00018ae4 l       .bss	00000004 global_static_init0_var
+00018688 l     O .data	00000004 global_static_init_var
+0001868c l     O .data	00000004 local_static_init_var.4152
+00018ae8 l       .bss	00000004 local_static_init0_var.4151
+00018aec l       .bss	00000004 local_static_uninit_var.4150
+00000000 l    df *ABS*	00000000 atexit.c
+00000000 l    df *ABS*	00000000 exit.c
+00000000 l    df *ABS*	00000000 fini.c
+00000000 l    df *ABS*	00000000 impure.c
+00018698 l     O .data	00000428 impure_data
+00000000 l    df *ABS*	00000000 init.c
+00000000 l    df *ABS*	00000000 memset.c
+00000000 l    df *ABS*	00000000 __atexit.c
+00000000 l    df *ABS*	00000000 _exit.c
+00000000 l    df *ABS*	00000000 crtstuff.c
+00008670 l     O .eh_frame	00000000 __FRAME_END__
+00000000 l    df *ABS*	00000000 
+00018680 l       .fini_array	00000000 __fini_array_end
+0001867c l       .fini_array	00000000 __fini_array_start
+0001867c l       .init_array	00000000 __init_array_end
+00018674 l       .init_array	00000000 __preinit_array_end
+00018674 l       .init_array	00000000 __init_array_start
+00018674 l       .init_array	00000000 __preinit_array_start
+00018af4 g       .bss	00000000 _bss_end__
+00018ac0 g     O .data	00000000 .hidden __TMC_END__
+00018ac0 g       .bss	00000000 __bss_start__
+00018680 g     O .data	00000000 .hidden __dso_handle
+00008664 g     O .rodata	00000004 _global_impure_ptr
+00008310 g     F .text	00000088 __libc_init_array
+000081a4 g       .text	00000000 _mainCRTStartup
+00008000 g     F .init	00000000 _init
+00018684 g     O .data	00000004 global_init_var
+000082c8 g     F .text	00000048 __libc_fini_array
+00018af4 g       .bss	00000000 __bss_end__
+0000853c g     F .text	0000010c __call_exitprocs
+000081a4 g       .text	00000000 _start
+000084b0 g     F .text	0000008c __register_exitproc
+0000811c  w      .text	00000000 _stack_init
+00018ac0 g       .bss	00000000 __bss_start
+00018af0 g     O .bss	00000004 global_uninit_var
+00008398 g     F .text	00000118 memset
+00008244 g     F .text	00000030 main
+00018af4 g       .bss	00000000 __end__
+0000864c g     F .fini	00000000 _fini
+00008274 g     F .text	00000020 atexit
+00018690 g     O .data	00000004 _impure_ptr
+00018ac0 g       .data	00000000 _edata
+00018af4 g       .bss	00000000 _end
+00008294 g     F .text	00000034 exit
+00008648 g     F .text	00000004 _exit
+00080000 g       .comment	00000000 _stack
+00018680 g       .data	00000000 __data_start
+00018adc g     O .bss	00000004 global_init0_var
+
+
