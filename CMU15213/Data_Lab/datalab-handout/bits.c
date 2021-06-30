@@ -41,18 +41,18 @@ INTEGER CODING RULES:
       return ExprR;
   }
 
-  Each "Expr" is an expression using ONLY the following:
+  Each "Expr" is an exprespsion using ONLY the following:
   1. Integer constants 0 through 255 (0xFF), inclusive. You are
       not allowed to use big constants such as 0xffffffff.
   2. Function arguments and local variables (no global variables).
   3. Unary integer operations ! ~
   4. Binary integer operations & ^ | + << >>
     
-  Some of the problems restrict the set of allowed operators even further.
-  Each "Expr" may consist of multiple operators. You are not restricted to
+  Some of the problems resptrict the set of allowed operators even further.
+  Each "Expr" may consist of multiple operators. You are not resptricted to
   one operator per line.
 
-  You are expressly forbidden to:
+  You are exprespsly forbidden to:
   1. Use any control constructs such as if, do, while, for, switch, etc.
   2. Define or use any macros.
   3. Define any additional functions in this file.
@@ -64,7 +64,7 @@ INTEGER CODING RULES:
 
  
   You may assume that your machine:
-  1. Uses 2s complement, 32-bit representations of integers.
+  1. Uses 2s complement, 32-bit represpentations of integers.
   2. Performs right shifts arithmetically.
   3. Has unpredictable behavior when shifting if the shift amount
      is less than 0 or greater than 31.
@@ -84,9 +84,9 @@ EXAMPLES OF ACCEPTABLE CODING STYLE:
    */
   int pow2plus4(int x) {
      /* exploit ability of shifts to compute powers of 2 */
-     int result = (1 << x);
-     result += 4;
-     return result;
+     int respult = (1 << x);
+     respult += 4;
+     return respult;
   }
 
 FLOATING POINT CODING RULES
@@ -97,7 +97,7 @@ conditional control.  You are allowed to use both ints and unsigneds.
 You can use arbitrary integer and unsigned constants. You can use any arithmetic,
 logical, or comparison operations on int or unsigned data.
 
-You are expressly forbidden to:
+You are exprespsly forbidden to:
   1. Define or use any macros.
   2. Define any additional functions in this file.
   3. Call any functions.
@@ -143,7 +143,7 @@ NOTES:
  *   Rating: 1
  */
 int bitXor(int x, int y) {
-  return 2;
+  return ~(~(~x & y) & ~(x & ~y));
 }
 /* 
  * tmin - return minimum two's complement integer 
@@ -152,9 +152,7 @@ int bitXor(int x, int y) {
  *   Rating: 1
  */
 int tmin(void) {
-
-  return 2;
-
+  return (1 << 31);
 }
 //2
 /*
@@ -165,7 +163,8 @@ int tmin(void) {
  *   Rating: 1
  */
 int isTmax(int x) {
-  return 2;
+  int tmax = ~(1 << 31);
+  return !(x ^ tmax);
 }
 /* 
  * allOddBits - return 1 if all odd-numbered bits in word set to 1
@@ -176,7 +175,11 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int allOddBits(int x) {
-  return 2;
+  int res = x & (x >> 16);
+  res &= (res >> 8);
+  res &= (res >> 4);
+  res &= (res >> 2);
+  return (res & 0x2) >> 1;
 }
 /* 
  * negate - return -x 
@@ -186,7 +189,7 @@ int allOddBits(int x) {
  *   Rating: 2
  */
 int negate(int x) {
-  return 2;
+  return ~x + 1;
 }
 //3
 /* 
@@ -199,7 +202,10 @@ int negate(int x) {
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-  return 2;
+  int res = !((x >> 3) ^ 0x6);
+  res |= !(x ^ 0x38);
+  res |= !(x ^ 0x39);
+  return res;
 }
 /* 
  * conditional - same as x ? y : z 
@@ -209,7 +215,12 @@ int isAsciiDigit(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-  return 2;
+  int chk = !(x ^ 0);
+  int res = 0;
+  chk = ~chk + 1;
+  res += y & ~chk;
+  res += z & chk;
+  return res;
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
@@ -219,7 +230,13 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+  int signx = (x >> 31) & 0x1;
+  int signy = (y >> 31) & 0x1;
+  int res = 0;
+  res = !((y + ~x + 1) >> 31);
+  res &= !((!signx) & (signy));
+  res |= ((signx) & (!signy));
+  return res;
 }
 //4
 /* 
@@ -231,7 +248,12 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 4 
  */
 int logicalNeg(int x) {
-  return 2;
+  int res = x | (x >> 16);
+  res |= (res >> 8);
+  res |= (res >> 4);
+  res |= (res >> 2);
+  res |= (res >> 1);
+  return ~res & 0x1;
 }
 /* howManyBits - return the minimum number of bits required to represent x in
  *             two's complement
@@ -246,7 +268,39 @@ int logicalNeg(int x) {
  *  Rating: 4
  */
 int howManyBits(int x) {
-  return 0;
+  int sign = ~((x >> 31) & 0x1) + 1;
+  int chk = 0;
+  int res = 1;
+  int shift = 0;
+
+  chk = ((!!(x >> 16)) & (~sign)) | ((!!(~(x >> 16))) & (sign));
+  shift = chk << 4;
+  res += shift;
+  x >>= shift;
+
+  chk = ((!!(x >> 8)) & (~sign)) | ((!!(~(x >> 8))) & (sign));
+  shift = chk << 3;
+  res += shift;
+  x >>= shift;
+
+  chk = ((!!(x >> 4)) & (~sign)) | ((!!(~(x >> 4))) & (sign));
+  shift = chk << 2;
+  res += shift;
+  x >>= shift;
+
+  chk = ((!!(x >> 2)) & (~sign)) | ((!!(~(x >> 2))) & (sign));
+  shift = chk << 1;
+  res += shift;
+  x >>= shift;
+
+  chk = ((!!(x >> 1)) & (~sign)) | ((!!(~(x >> 1))) & (sign));
+  shift = chk;
+  res += shift;
+  x >>= shift;
+
+  res += !(x ^ 1) | !(x ^ ~1);
+
+  return res;
 }
 //float
 /* 
@@ -261,7 +315,25 @@ int howManyBits(int x) {
  *   Rating: 4
  */
 unsigned floatScale2(unsigned uf) {
-  return 2;
+  unsigned sign = (uf >> 31);
+  unsigned frac = uf & 0x007FFFFF;
+  int exp = (uf >> 23) & 0xFF;
+  unsigned res = 0;
+
+  if (!exp) {                         // denorm
+    if (frac == 0x007FFFFF)
+      res = 0x00FFFFFE;
+    else
+      res = (frac << 1);
+  } else if (!!(exp ^ 0xFF)) {        // norm
+    if (exp == 0xFE)
+      res = 0x7F800000;
+    else
+      res = ((exp + 1) << 23) | frac;
+  } else {                            // special case
+    res = uf;
+  }
+  return (sign << 31) | res;
 }
 /* 
  * floatFloat2Int - Return bit-level equivalent of expression (int) f
@@ -276,7 +348,18 @@ unsigned floatScale2(unsigned uf) {
  *   Rating: 4
  */
 int floatFloat2Int(unsigned uf) {
-  return 2;
+  int exp = (uf >> 23) & 0xFF;
+  int res = 0;
+  if (!exp) {
+    res = 0;
+  } else if (!(exp ^ 0xFF) || (exp - 127) > 32) {
+    res = 0x80000000;
+  } else if ((exp - 127) >= 0) {
+    res = (0x00800000 | (uf & 0x007FFFFF)) >> (23 - (exp - 127));
+  } else {
+    res = 0;
+  }
+  return (uf >> 31) ? -res : res;
 }
 /* 
  * floatPower2 - Return bit-level equivalent of the expression 2.0^x
@@ -292,5 +375,17 @@ int floatFloat2Int(unsigned uf) {
  *   Rating: 4
  */
 unsigned floatPower2(int x) {
-    return 2;
+  int res = 0;
+  if (x >= 128) {
+    res = 0x7F800000;
+  } else if (x < -149) {
+    res = 0;
+  } else if (!x) {
+    res = 0x3F800000;
+  } else if (x >= -125) {
+    res = (x + 127) << 23;
+  } else {
+    res = ((x + 126) << 23) | 0x007FFFFF;
+  }
+  return res;
 }
