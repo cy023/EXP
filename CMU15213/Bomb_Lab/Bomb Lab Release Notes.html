@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0047)http://csapp.cs.cmu.edu/3e/bomblab-release.html -->
+<html coupert-item="9AF8D9A4E502F3784AD24272D81F0381"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bomb Lab Release Notes</title>
+  <style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style><style>
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 400;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Regular.svg) format('svg');
+        }
+        @font-face{
+            font-family: 'Circular'; 
+            font-weight: 700;
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot);
+            src: url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.eot?#iefix) format('embedded-opentype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff2) format('woff2'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.woff) format('woff'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.ttf) format('truetype'),
+                url(chrome-extension://mfidniedemcgceagapgdekdbmanojomk/font/Circular-Pro-Black-Bold.svg) format('svg');
+        }
+    </style></head>
+
+  <body bgcolor="white" data-new-gr-c-s-check-loaded="14.1018.0" data-gr-ext-installed="">
+    <h1>Bomb Lab Release Notes</h1>
+
+<table width="700"><tbody><tr><td>
+
+<h2>1/12/2016</h2>
+<ul>
+<li>Added a unique hash for each bomb to prevent spoofing. <i>Thanks to Zaheer Chothia, ETH, Switzerland.</i>
+</li><li>Added a timeout to prevent the request daemon from hanging while interacting with clients under heavy loads. <i>Thanks to Len Hamy, Macquarie University, Australia</i>
+</li><li>Added some additional logging to the main bomblab daemon. 
+</li></ul>
+
+<h2>4/9/2013</h2>
+<ul>
+<li> Fixed a bug that caused <kbd>makebomb.pl</kbd> to fail when
+building 32-bit bombs on 64-bit systems. <i>Thanks to Prof. Hugh
+Lauer, Worcester Polytechnic Institute.</i>
+</li></ul>
+
+<h2>3/26/2013</h2>
+<ul>
+<li> Fixed a bug due to <kbd>hostname</kbd> on some systems not
+returning a fully qualified domain name. <i>Thanks to Prof. Hugh Lauer
+and Taymon Beal, Worcester Polytechnic Institute.</i>
+
+</li><li> Minor updates to the top-level README file.
+</li></ul>
+
+<h2>5/17/2012</h2>
+<ul>
+<li> Added a per-semester identifier, called <kbd>$LABID</kbd>, to
+the <kbd>Bomblab.pm</kbd> config file. Instructors can change this
+variable each term so that the results generated by any bombs from
+previous offerings of the lab are ignored. <i>Thanks to Prof. Godmar
+Back, Virginia Tech.</i>
+</li></ul>
+
+<h2>8/22/2011</h2>
+<ul>
+<li> Fixed a bug in <kbd>bomblab-update.pl</kbd> that could have
+filled up the filesystem with log messages if the <kbd>rename</kbd>
+operation failed. <i>Thanks to Prof. Godmar Back, Virginia Tech.</i> 
+
+</li><li>Modified the "start" rule in Makefile to touch the log.txt file
+before starting up the lab daemons, so that an empty scoreboard is
+created initially. <i>Thanks to Prof. Godmar Back, Virginia Tech.</i>
+
+</li></ul>
+
+<h2>1/2/2011</h2>
+<b>This is a major update of the Bomb Lab:</b>
+<ul>
+<li> Introduced a new stand-alone, user-level HTTP-based autograding 
+service that hands out custom bombs on demand, tracks 
+bomb explosions and diffusings in real-time on a
+scoreboard, and serves the scoreboard to browsers.
+
+</li><li> Developed new and updated bomb phases.
+
+</li><li> In <kbd>makebomb.pl</kbd>, replaced "the cp $srcdir/{f1,f2}
+target" notation, which some shells don't handle, with the more
+portable "cp $srcdir/f1 $srcdir/f2 target" form.
+
+</li><li> Made some minor updates to the top-level README file. 
+
+</li></ul>
+
+<h2>3/12/2003</h2>
+<ul>
+<li> Rewrote the bomb request daemon, <kbd>bomb-requestd.pl</kbd> to
+be more robust and easier for the students to use. The new daemon is
+based on HTTP, and is extremely simple:
+
+<ul>
+
+<li> Students request a bomb by pointing their Web browser at the host
+and port number of the request daemon, and then filling out a form with
+their team member information.
+
+</li><li> The request daemon builds a bomb, packs it up in a tar file, and
+returns it to the student's Web browser.
+</li></ul>
+
+<p>
+This new version has significant advantages over the previous email
+based version:
+</p><ul>
+<li> Students receive their bombs immediately.
+
+</li><li> Students no longer need to use <kbd>uudecode</kbd> to save their
+bombs.
+
+</li><li> Some email clients apply unexpected encodings to Subject lines
+that caused the old daemon to miss some requests. This is no longer an
+issue in the new daemon. 
+<i>Thanks to Prof. Umberto Villano, Universita' del Sannio</i>.
+
+</li><li> The old daemon maintained hard state in the form of disk file
+containing the number of requests in the spool file that it had
+responded to.  If this file were removed or reset, the daemon would
+send new bombs to everyone who had previously requested a bomb, and
+worse, erase its record of the old bombs. This can no longer happen
+with the new request daemon.
+<i>Thanks to Prof. Al Davis, Univ of Utah</i>.
+</li></ul>
+
+<p>
+</p></li><li> Made a minor change to the <kbd>makebomb.pl</kbd> script so that
+it now includes a <kbd>README</kbd> file in each bomb<k> directory
+identifying the bomb number and the bomb owners.
+
+<p>
+</p></k></li><li> Changed <kbd>initbomblab.pl</kbd> so that it will NOT delete an
+existing "bombs" directory.
+
+<p>
+</p></li><li> Updated the writeup to reflect the new procedure for
+students to request bombs.
+
+<p>
+</p></li><li> The overall way an instructor runs the lab has NOT changed.
+As before, "make init" intializes the lab, "make start" starts
+the reporting and request daemons, and "make stop" kills them.
+</li></ul>
+
+<h2>9/30/2002</h2>
+<ul>
+<li> The reporting daemon is now more robust when it encounters 
+bogus notification messages in the spool file.
+</li></ul>
+
+<h2>6/3/2002</h2>
+<ul>
+<li> Initial release.
+</li></ul>
+
+</td></tr></tbody></table>
+  
+
+</body><div id="196dfdc7-dbd8-41ca-a1b6-e5b0378992a0" style="all: initial;"></div><div id="08c12453-300e-482e-a34d-5f6c1b690e82" style="all: initial;"></div><div id="97671ace-07e9-4659-8a22-20285dc0dc0f" style="all: initial;"></div><div id="03abcf3d-18db-4fc9-9b50-87f09a0c28bb" style="all: initial;"></div><div id="c39b3a6b-9b49-402c-bd8c-2df2bfc657c2" style="all: initial;"></div><div id="4be4c66b-e36e-4f37-a57a-6fde9c75f4eb" style="all: initial;"></div><div id="d85e68a2-ade4-4464-a741-6011d7effea0" style="all: initial;"></div><div id="b40a1715-2470-431c-9d7c-0cd9e56f70e3" style="all: initial;"></div><div id="ef5258ec-fb73-4449-bcfa-5dd1a8fa9e9e" style="all: initial;"></div><div id="0b0bf729-8b0d-4357-b7a6-ddd0ab21838f" style="all: initial;"></div><div id="526d696a-760b-460a-b2a3-bc000f831f1a" style="all: initial;"></div><div id="2915917d-fe18-4f2d-b64a-46c67d061f61" style="all: initial;"></div><div id="78b89d43-a2c1-4560-b022-bac9a1b4092e" style="all: initial;"></div></html>
