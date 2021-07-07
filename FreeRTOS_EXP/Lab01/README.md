@@ -9,3 +9,5 @@
 - 新增 Include 參考路徑
 - 修改 FreeRTOSConfig.h
 - 將 SYS 的時脈從 systick 改為其他 timer
+
+# Lab02
