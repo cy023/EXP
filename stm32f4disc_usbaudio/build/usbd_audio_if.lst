@@ -1,0 +1,597 @@
+ARM GAS  C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"usbd_audio_if.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.AUDIO_Init_FS,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	AUDIO_Init_FS:
+  26              	.LVL0:
+  27              	.LFB134:
+  28              		.file 1 "USB_DEVICE/App/usbd_audio_if.c"
+   1:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE BEGIN Header */
+   2:USB_DEVICE/App/usbd_audio_if.c **** /**
+   3:USB_DEVICE/App/usbd_audio_if.c ****   ******************************************************************************
+   4:USB_DEVICE/App/usbd_audio_if.c ****   * @file           : usbd_audio_if.c
+   5:USB_DEVICE/App/usbd_audio_if.c ****   * @version        : v1.0_Cube
+   6:USB_DEVICE/App/usbd_audio_if.c ****   * @brief          : Generic media access layer.
+   7:USB_DEVICE/App/usbd_audio_if.c ****   ******************************************************************************
+   8:USB_DEVICE/App/usbd_audio_if.c ****   * @attention
+   9:USB_DEVICE/App/usbd_audio_if.c ****   *
+  10:USB_DEVICE/App/usbd_audio_if.c ****   * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+  11:USB_DEVICE/App/usbd_audio_if.c ****   * All rights reserved.</center></h2>
+  12:USB_DEVICE/App/usbd_audio_if.c ****   *
+  13:USB_DEVICE/App/usbd_audio_if.c ****   * This software component is licensed by ST under Ultimate Liberty license
+  14:USB_DEVICE/App/usbd_audio_if.c ****   * SLA0044, the "License"; You may not use this file except in compliance with
+  15:USB_DEVICE/App/usbd_audio_if.c ****   * the License. You may obtain a copy of the License at:
+  16:USB_DEVICE/App/usbd_audio_if.c ****   *                             www.st.com/SLA0044
+  17:USB_DEVICE/App/usbd_audio_if.c ****   *
+  18:USB_DEVICE/App/usbd_audio_if.c ****   ******************************************************************************
+  19:USB_DEVICE/App/usbd_audio_if.c ****   */
+  20:USB_DEVICE/App/usbd_audio_if.c ****  /* USER CODE END Header */
+  21:USB_DEVICE/App/usbd_audio_if.c **** 
+  22:USB_DEVICE/App/usbd_audio_if.c **** /* Includes ------------------------------------------------------------------*/
+  23:USB_DEVICE/App/usbd_audio_if.c **** #include "usbd_audio_if.h"
+  24:USB_DEVICE/App/usbd_audio_if.c **** 
+  25:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE BEGIN INCLUDE */
+  26:USB_DEVICE/App/usbd_audio_if.c **** 
+  27:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE END INCLUDE */
+  28:USB_DEVICE/App/usbd_audio_if.c **** 
+  29:USB_DEVICE/App/usbd_audio_if.c **** /* Private typedef -----------------------------------------------------------*/
+  30:USB_DEVICE/App/usbd_audio_if.c **** /* Private define ------------------------------------------------------------*/
+ARM GAS  C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s 			page 2
+
+
+  31:USB_DEVICE/App/usbd_audio_if.c **** /* Private macro -------------------------------------------------------------*/
+  32:USB_DEVICE/App/usbd_audio_if.c **** 
+  33:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE BEGIN PV */
+  34:USB_DEVICE/App/usbd_audio_if.c **** /* Private variables ---------------------------------------------------------*/
+  35:USB_DEVICE/App/usbd_audio_if.c **** 
+  36:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE END PV */
+  37:USB_DEVICE/App/usbd_audio_if.c **** 
+  38:USB_DEVICE/App/usbd_audio_if.c **** /** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
+  39:USB_DEVICE/App/usbd_audio_if.c ****   * @brief Usb device library.
+  40:USB_DEVICE/App/usbd_audio_if.c ****   * @{
+  41:USB_DEVICE/App/usbd_audio_if.c ****   */
+  42:USB_DEVICE/App/usbd_audio_if.c **** 
+  43:USB_DEVICE/App/usbd_audio_if.c **** /** @addtogroup USBD_AUDIO_IF
+  44:USB_DEVICE/App/usbd_audio_if.c ****   * @{
+  45:USB_DEVICE/App/usbd_audio_if.c ****   */
+  46:USB_DEVICE/App/usbd_audio_if.c **** 
+  47:USB_DEVICE/App/usbd_audio_if.c **** /** @defgroup USBD_AUDIO_IF_Private_TypesDefinitions USBD_AUDIO_IF_Private_TypesDefinitions
+  48:USB_DEVICE/App/usbd_audio_if.c ****   * @brief Private types.
+  49:USB_DEVICE/App/usbd_audio_if.c ****   * @{
+  50:USB_DEVICE/App/usbd_audio_if.c ****   */
+  51:USB_DEVICE/App/usbd_audio_if.c **** 
+  52:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE BEGIN PRIVATE_TYPES */
+  53:USB_DEVICE/App/usbd_audio_if.c **** 
+  54:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE END PRIVATE_TYPES */
+  55:USB_DEVICE/App/usbd_audio_if.c **** 
+  56:USB_DEVICE/App/usbd_audio_if.c **** /**
+  57:USB_DEVICE/App/usbd_audio_if.c ****   * @}
+  58:USB_DEVICE/App/usbd_audio_if.c ****   */
+  59:USB_DEVICE/App/usbd_audio_if.c **** 
+  60:USB_DEVICE/App/usbd_audio_if.c **** /** @defgroup USBD_AUDIO_IF_Private_Defines USBD_AUDIO_IF_Private_Defines
+  61:USB_DEVICE/App/usbd_audio_if.c ****   * @brief Private defines.
+  62:USB_DEVICE/App/usbd_audio_if.c ****   * @{
+  63:USB_DEVICE/App/usbd_audio_if.c ****   */
+  64:USB_DEVICE/App/usbd_audio_if.c **** 
+  65:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE BEGIN PRIVATE_DEFINES */
+  66:USB_DEVICE/App/usbd_audio_if.c **** 
+  67:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE END PRIVATE_DEFINES */
+  68:USB_DEVICE/App/usbd_audio_if.c **** 
+  69:USB_DEVICE/App/usbd_audio_if.c **** /**
+  70:USB_DEVICE/App/usbd_audio_if.c ****   * @}
+  71:USB_DEVICE/App/usbd_audio_if.c ****   */
+  72:USB_DEVICE/App/usbd_audio_if.c **** 
+  73:USB_DEVICE/App/usbd_audio_if.c **** /** @defgroup USBD_AUDIO_IF_Private_Macros USBD_AUDIO_IF_Private_Macros
+  74:USB_DEVICE/App/usbd_audio_if.c ****   * @brief Private macros.
+  75:USB_DEVICE/App/usbd_audio_if.c ****   * @{
+  76:USB_DEVICE/App/usbd_audio_if.c ****   */
+  77:USB_DEVICE/App/usbd_audio_if.c **** 
+  78:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE BEGIN PRIVATE_MACRO */
+  79:USB_DEVICE/App/usbd_audio_if.c **** 
+  80:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE END PRIVATE_MACRO */
+  81:USB_DEVICE/App/usbd_audio_if.c **** 
+  82:USB_DEVICE/App/usbd_audio_if.c **** /**
+  83:USB_DEVICE/App/usbd_audio_if.c ****   * @}
+  84:USB_DEVICE/App/usbd_audio_if.c ****   */
+  85:USB_DEVICE/App/usbd_audio_if.c **** 
+  86:USB_DEVICE/App/usbd_audio_if.c **** /** @defgroup USBD_AUDIO_IF_Private_Variables USBD_AUDIO_IF_Private_Variables
+  87:USB_DEVICE/App/usbd_audio_if.c ****   * @brief Private variables.
+ARM GAS  C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s 			page 3
+
+
+  88:USB_DEVICE/App/usbd_audio_if.c ****   * @{
+  89:USB_DEVICE/App/usbd_audio_if.c ****   */
+  90:USB_DEVICE/App/usbd_audio_if.c **** 
+  91:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE BEGIN PRIVATE_VARIABLES */
+  92:USB_DEVICE/App/usbd_audio_if.c **** 
+  93:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE END PRIVATE_VARIABLES */
+  94:USB_DEVICE/App/usbd_audio_if.c **** 
+  95:USB_DEVICE/App/usbd_audio_if.c **** /**
+  96:USB_DEVICE/App/usbd_audio_if.c ****   * @}
+  97:USB_DEVICE/App/usbd_audio_if.c ****   */
+  98:USB_DEVICE/App/usbd_audio_if.c **** 
+  99:USB_DEVICE/App/usbd_audio_if.c **** /** @defgroup USBD_AUDIO_IF_Exported_Variables USBD_AUDIO_IF_Exported_Variables
+ 100:USB_DEVICE/App/usbd_audio_if.c ****   * @brief Public variables.
+ 101:USB_DEVICE/App/usbd_audio_if.c ****   * @{
+ 102:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 103:USB_DEVICE/App/usbd_audio_if.c **** 
+ 104:USB_DEVICE/App/usbd_audio_if.c **** extern USBD_HandleTypeDef hUsbDeviceFS;
+ 105:USB_DEVICE/App/usbd_audio_if.c **** 
+ 106:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE BEGIN EXPORTED_VARIABLES */
+ 107:USB_DEVICE/App/usbd_audio_if.c **** 
+ 108:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE END EXPORTED_VARIABLES */
+ 109:USB_DEVICE/App/usbd_audio_if.c **** 
+ 110:USB_DEVICE/App/usbd_audio_if.c **** /**
+ 111:USB_DEVICE/App/usbd_audio_if.c ****   * @}
+ 112:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 113:USB_DEVICE/App/usbd_audio_if.c **** 
+ 114:USB_DEVICE/App/usbd_audio_if.c **** /** @defgroup USBD_AUDIO_IF_Private_FunctionPrototypes USBD_AUDIO_IF_Private_FunctionPrototypes
+ 115:USB_DEVICE/App/usbd_audio_if.c ****   * @brief Private functions declaration.
+ 116:USB_DEVICE/App/usbd_audio_if.c ****   * @{
+ 117:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 118:USB_DEVICE/App/usbd_audio_if.c **** 
+ 119:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_Init_FS(uint32_t AudioFreq, uint32_t Volume, uint32_t options);
+ 120:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_DeInit_FS(uint32_t options);
+ 121:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_AudioCmd_FS(uint8_t* pbuf, uint32_t size, uint8_t cmd);
+ 122:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_VolumeCtl_FS(uint8_t vol);
+ 123:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_MuteCtl_FS(uint8_t cmd);
+ 124:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_PeriodicTC_FS(uint8_t *pbuf, uint32_t size, uint8_t cmd);
+ 125:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_GetState_FS(void);
+ 126:USB_DEVICE/App/usbd_audio_if.c **** 
+ 127:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE BEGIN PRIVATE_FUNCTIONS_DECLARATION */
+ 128:USB_DEVICE/App/usbd_audio_if.c **** 
+ 129:USB_DEVICE/App/usbd_audio_if.c **** /* USER CODE END PRIVATE_FUNCTIONS_DECLARATION */
+ 130:USB_DEVICE/App/usbd_audio_if.c **** 
+ 131:USB_DEVICE/App/usbd_audio_if.c **** /**
+ 132:USB_DEVICE/App/usbd_audio_if.c ****   * @}
+ 133:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 134:USB_DEVICE/App/usbd_audio_if.c **** 
+ 135:USB_DEVICE/App/usbd_audio_if.c **** USBD_AUDIO_ItfTypeDef USBD_AUDIO_fops_FS =
+ 136:USB_DEVICE/App/usbd_audio_if.c **** {
+ 137:USB_DEVICE/App/usbd_audio_if.c ****   AUDIO_Init_FS,
+ 138:USB_DEVICE/App/usbd_audio_if.c ****   AUDIO_DeInit_FS,
+ 139:USB_DEVICE/App/usbd_audio_if.c ****   AUDIO_AudioCmd_FS,
+ 140:USB_DEVICE/App/usbd_audio_if.c ****   AUDIO_VolumeCtl_FS,
+ 141:USB_DEVICE/App/usbd_audio_if.c ****   AUDIO_MuteCtl_FS,
+ 142:USB_DEVICE/App/usbd_audio_if.c ****   AUDIO_PeriodicTC_FS,
+ 143:USB_DEVICE/App/usbd_audio_if.c ****   AUDIO_GetState_FS,
+ 144:USB_DEVICE/App/usbd_audio_if.c **** };
+ARM GAS  C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s 			page 4
+
+
+ 145:USB_DEVICE/App/usbd_audio_if.c **** 
+ 146:USB_DEVICE/App/usbd_audio_if.c **** /* Private functions ---------------------------------------------------------*/
+ 147:USB_DEVICE/App/usbd_audio_if.c **** /**
+ 148:USB_DEVICE/App/usbd_audio_if.c ****   * @brief  Initializes the AUDIO media low layer over USB FS IP
+ 149:USB_DEVICE/App/usbd_audio_if.c ****   * @param  AudioFreq: Audio frequency used to play the audio stream.
+ 150:USB_DEVICE/App/usbd_audio_if.c ****   * @param  Volume: Initial volume level (from 0 (Mute) to 100 (Max))
+ 151:USB_DEVICE/App/usbd_audio_if.c ****   * @param  options: Reserved for future use
+ 152:USB_DEVICE/App/usbd_audio_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 153:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 154:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_Init_FS(uint32_t AudioFreq, uint32_t Volume, uint32_t options)
+ 155:USB_DEVICE/App/usbd_audio_if.c **** {
+  29              		.loc 1 155 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+ 156:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE BEGIN 0 */
+ 157:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(AudioFreq);
+  34              		.loc 1 157 3 view .LVU1
+ 158:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(Volume);
+  35              		.loc 1 158 3 view .LVU2
+ 159:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(options);
+  36              		.loc 1 159 3 view .LVU3
+ 160:USB_DEVICE/App/usbd_audio_if.c ****   return (USBD_OK);
+  37              		.loc 1 160 3 view .LVU4
+ 161:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE END 0 */
+ 162:USB_DEVICE/App/usbd_audio_if.c **** }
+  38              		.loc 1 162 1 is_stmt 0 view .LVU5
+  39 0000 0020     		movs	r0, #0
+  40              	.LVL1:
+  41              		.loc 1 162 1 view .LVU6
+  42 0002 7047     		bx	lr
+  43              		.cfi_endproc
+  44              	.LFE134:
+  46              		.section	.text.AUDIO_DeInit_FS,"ax",%progbits
+  47              		.align	1
+  48              		.syntax unified
+  49              		.thumb
+  50              		.thumb_func
+  51              		.fpu fpv4-sp-d16
+  53              	AUDIO_DeInit_FS:
+  54              	.LVL2:
+  55              	.LFB135:
+ 163:USB_DEVICE/App/usbd_audio_if.c **** 
+ 164:USB_DEVICE/App/usbd_audio_if.c **** /**
+ 165:USB_DEVICE/App/usbd_audio_if.c ****   * @brief  De-Initializes the AUDIO media low layer
+ 166:USB_DEVICE/App/usbd_audio_if.c ****   * @param  options: Reserved for future use
+ 167:USB_DEVICE/App/usbd_audio_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 168:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 169:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_DeInit_FS(uint32_t options)
+ 170:USB_DEVICE/App/usbd_audio_if.c **** {
+  56              		.loc 1 170 1 is_stmt 1 view -0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60              		@ link register save eliminated.
+ 171:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE BEGIN 1 */
+ARM GAS  C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s 			page 5
+
+
+ 172:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(options);
+  61              		.loc 1 172 3 view .LVU8
+ 173:USB_DEVICE/App/usbd_audio_if.c ****   return (USBD_OK);
+  62              		.loc 1 173 3 view .LVU9
+ 174:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE END 1 */
+ 175:USB_DEVICE/App/usbd_audio_if.c **** }
+  63              		.loc 1 175 1 is_stmt 0 view .LVU10
+  64 0000 0020     		movs	r0, #0
+  65              	.LVL3:
+  66              		.loc 1 175 1 view .LVU11
+  67 0002 7047     		bx	lr
+  68              		.cfi_endproc
+  69              	.LFE135:
+  71              		.section	.text.AUDIO_AudioCmd_FS,"ax",%progbits
+  72              		.align	1
+  73              		.syntax unified
+  74              		.thumb
+  75              		.thumb_func
+  76              		.fpu fpv4-sp-d16
+  78              	AUDIO_AudioCmd_FS:
+  79              	.LVL4:
+  80              	.LFB136:
+ 176:USB_DEVICE/App/usbd_audio_if.c **** 
+ 177:USB_DEVICE/App/usbd_audio_if.c **** /**
+ 178:USB_DEVICE/App/usbd_audio_if.c ****   * @brief  Handles AUDIO command.
+ 179:USB_DEVICE/App/usbd_audio_if.c ****   * @param  pbuf: Pointer to buffer of data to be sent
+ 180:USB_DEVICE/App/usbd_audio_if.c ****   * @param  size: Number of data to be sent (in bytes)
+ 181:USB_DEVICE/App/usbd_audio_if.c ****   * @param  cmd: Command opcode
+ 182:USB_DEVICE/App/usbd_audio_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 183:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 184:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_AudioCmd_FS(uint8_t* pbuf, uint32_t size, uint8_t cmd)
+ 185:USB_DEVICE/App/usbd_audio_if.c **** {
+  81              		.loc 1 185 1 is_stmt 1 view -0
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+  85              		@ link register save eliminated.
+ 186:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE BEGIN 2 */
+ 187:USB_DEVICE/App/usbd_audio_if.c ****   switch(cmd)
+  86              		.loc 1 187 3 view .LVU13
+ 188:USB_DEVICE/App/usbd_audio_if.c ****   {
+ 189:USB_DEVICE/App/usbd_audio_if.c ****     case AUDIO_CMD_START:
+ 190:USB_DEVICE/App/usbd_audio_if.c ****     break;
+ 191:USB_DEVICE/App/usbd_audio_if.c **** 
+ 192:USB_DEVICE/App/usbd_audio_if.c ****     case AUDIO_CMD_PLAY:
+ 193:USB_DEVICE/App/usbd_audio_if.c ****     break;
+ 194:USB_DEVICE/App/usbd_audio_if.c ****   }
+ 195:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(pbuf);
+  87              		.loc 1 195 3 view .LVU14
+ 196:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(size);
+  88              		.loc 1 196 3 view .LVU15
+ 197:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(cmd);
+  89              		.loc 1 197 3 view .LVU16
+ 198:USB_DEVICE/App/usbd_audio_if.c ****   return (USBD_OK);
+  90              		.loc 1 198 3 view .LVU17
+ 199:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE END 2 */
+ 200:USB_DEVICE/App/usbd_audio_if.c **** }
+ARM GAS  C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s 			page 6
+
+
+  91              		.loc 1 200 1 is_stmt 0 view .LVU18
+  92 0000 0020     		movs	r0, #0
+  93              	.LVL5:
+  94              		.loc 1 200 1 view .LVU19
+  95 0002 7047     		bx	lr
+  96              		.cfi_endproc
+  97              	.LFE136:
+  99              		.section	.text.AUDIO_VolumeCtl_FS,"ax",%progbits
+ 100              		.align	1
+ 101              		.syntax unified
+ 102              		.thumb
+ 103              		.thumb_func
+ 104              		.fpu fpv4-sp-d16
+ 106              	AUDIO_VolumeCtl_FS:
+ 107              	.LVL6:
+ 108              	.LFB137:
+ 201:USB_DEVICE/App/usbd_audio_if.c **** 
+ 202:USB_DEVICE/App/usbd_audio_if.c **** /**
+ 203:USB_DEVICE/App/usbd_audio_if.c ****   * @brief  Controls AUDIO Volume.
+ 204:USB_DEVICE/App/usbd_audio_if.c ****   * @param  vol: volume level (0..100)
+ 205:USB_DEVICE/App/usbd_audio_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 206:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 207:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_VolumeCtl_FS(uint8_t vol)
+ 208:USB_DEVICE/App/usbd_audio_if.c **** {
+ 109              		.loc 1 208 1 is_stmt 1 view -0
+ 110              		.cfi_startproc
+ 111              		@ args = 0, pretend = 0, frame = 0
+ 112              		@ frame_needed = 0, uses_anonymous_args = 0
+ 113              		@ link register save eliminated.
+ 209:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE BEGIN 3 */
+ 210:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(vol);
+ 114              		.loc 1 210 3 view .LVU21
+ 211:USB_DEVICE/App/usbd_audio_if.c ****   return (USBD_OK);
+ 115              		.loc 1 211 3 view .LVU22
+ 212:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE END 3 */
+ 213:USB_DEVICE/App/usbd_audio_if.c **** }
+ 116              		.loc 1 213 1 is_stmt 0 view .LVU23
+ 117 0000 0020     		movs	r0, #0
+ 118              	.LVL7:
+ 119              		.loc 1 213 1 view .LVU24
+ 120 0002 7047     		bx	lr
+ 121              		.cfi_endproc
+ 122              	.LFE137:
+ 124              		.section	.text.AUDIO_MuteCtl_FS,"ax",%progbits
+ 125              		.align	1
+ 126              		.syntax unified
+ 127              		.thumb
+ 128              		.thumb_func
+ 129              		.fpu fpv4-sp-d16
+ 131              	AUDIO_MuteCtl_FS:
+ 132              	.LVL8:
+ 133              	.LFB138:
+ 214:USB_DEVICE/App/usbd_audio_if.c **** 
+ 215:USB_DEVICE/App/usbd_audio_if.c **** /**
+ 216:USB_DEVICE/App/usbd_audio_if.c ****   * @brief  Controls AUDIO Mute.
+ 217:USB_DEVICE/App/usbd_audio_if.c ****   * @param  cmd: command opcode
+ 218:USB_DEVICE/App/usbd_audio_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ARM GAS  C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s 			page 7
+
+
+ 219:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 220:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_MuteCtl_FS(uint8_t cmd)
+ 221:USB_DEVICE/App/usbd_audio_if.c **** {
+ 134              		.loc 1 221 1 is_stmt 1 view -0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138              		@ link register save eliminated.
+ 222:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE BEGIN 4 */
+ 223:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(cmd);
+ 139              		.loc 1 223 3 view .LVU26
+ 224:USB_DEVICE/App/usbd_audio_if.c ****   return (USBD_OK);
+ 140              		.loc 1 224 3 view .LVU27
+ 225:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE END 4 */
+ 226:USB_DEVICE/App/usbd_audio_if.c **** }
+ 141              		.loc 1 226 1 is_stmt 0 view .LVU28
+ 142 0000 0020     		movs	r0, #0
+ 143              	.LVL9:
+ 144              		.loc 1 226 1 view .LVU29
+ 145 0002 7047     		bx	lr
+ 146              		.cfi_endproc
+ 147              	.LFE138:
+ 149              		.section	.text.AUDIO_PeriodicTC_FS,"ax",%progbits
+ 150              		.align	1
+ 151              		.syntax unified
+ 152              		.thumb
+ 153              		.thumb_func
+ 154              		.fpu fpv4-sp-d16
+ 156              	AUDIO_PeriodicTC_FS:
+ 157              	.LVL10:
+ 158              	.LFB139:
+ 227:USB_DEVICE/App/usbd_audio_if.c **** 
+ 228:USB_DEVICE/App/usbd_audio_if.c **** /**
+ 229:USB_DEVICE/App/usbd_audio_if.c ****   * @brief  AUDIO_PeriodicT_FS
+ 230:USB_DEVICE/App/usbd_audio_if.c ****   * @param  cmd: Command opcode
+ 231:USB_DEVICE/App/usbd_audio_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 232:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 233:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_PeriodicTC_FS(uint8_t *pbuf, uint32_t size, uint8_t cmd)
+ 234:USB_DEVICE/App/usbd_audio_if.c **** {
+ 159              		.loc 1 234 1 is_stmt 1 view -0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 235:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE BEGIN 5 */
+ 236:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(pbuf);
+ 164              		.loc 1 236 3 view .LVU31
+ 237:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(size);
+ 165              		.loc 1 237 3 view .LVU32
+ 238:USB_DEVICE/App/usbd_audio_if.c ****   UNUSED(cmd);
+ 166              		.loc 1 238 3 view .LVU33
+ 239:USB_DEVICE/App/usbd_audio_if.c ****   return (USBD_OK);
+ 167              		.loc 1 239 3 view .LVU34
+ 240:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE END 5 */
+ 241:USB_DEVICE/App/usbd_audio_if.c **** }
+ 168              		.loc 1 241 1 is_stmt 0 view .LVU35
+ 169 0000 0020     		movs	r0, #0
+ARM GAS  C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s 			page 8
+
+
+ 170              	.LVL11:
+ 171              		.loc 1 241 1 view .LVU36
+ 172 0002 7047     		bx	lr
+ 173              		.cfi_endproc
+ 174              	.LFE139:
+ 176              		.section	.text.AUDIO_GetState_FS,"ax",%progbits
+ 177              		.align	1
+ 178              		.syntax unified
+ 179              		.thumb
+ 180              		.thumb_func
+ 181              		.fpu fpv4-sp-d16
+ 183              	AUDIO_GetState_FS:
+ 184              	.LFB140:
+ 242:USB_DEVICE/App/usbd_audio_if.c **** 
+ 243:USB_DEVICE/App/usbd_audio_if.c **** /**
+ 244:USB_DEVICE/App/usbd_audio_if.c ****   * @brief  Gets AUDIO State.
+ 245:USB_DEVICE/App/usbd_audio_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 246:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 247:USB_DEVICE/App/usbd_audio_if.c **** static int8_t AUDIO_GetState_FS(void)
+ 248:USB_DEVICE/App/usbd_audio_if.c **** {
+ 185              		.loc 1 248 1 is_stmt 1 view -0
+ 186              		.cfi_startproc
+ 187              		@ args = 0, pretend = 0, frame = 0
+ 188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 189              		@ link register save eliminated.
+ 249:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE BEGIN 6 */
+ 250:USB_DEVICE/App/usbd_audio_if.c ****   return (USBD_OK);
+ 190              		.loc 1 250 3 view .LVU38
+ 251:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE END 6 */
+ 252:USB_DEVICE/App/usbd_audio_if.c **** }
+ 191              		.loc 1 252 1 is_stmt 0 view .LVU39
+ 192 0000 0020     		movs	r0, #0
+ 193 0002 7047     		bx	lr
+ 194              		.cfi_endproc
+ 195              	.LFE140:
+ 197              		.section	.text.TransferComplete_CallBack_FS,"ax",%progbits
+ 198              		.align	1
+ 199              		.global	TransferComplete_CallBack_FS
+ 200              		.syntax unified
+ 201              		.thumb
+ 202              		.thumb_func
+ 203              		.fpu fpv4-sp-d16
+ 205              	TransferComplete_CallBack_FS:
+ 206              	.LFB141:
+ 253:USB_DEVICE/App/usbd_audio_if.c **** 
+ 254:USB_DEVICE/App/usbd_audio_if.c **** /**
+ 255:USB_DEVICE/App/usbd_audio_if.c ****   * @brief  Manages the DMA full transfer complete event.
+ 256:USB_DEVICE/App/usbd_audio_if.c ****   * @retval None
+ 257:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 258:USB_DEVICE/App/usbd_audio_if.c **** void TransferComplete_CallBack_FS(void)
+ 259:USB_DEVICE/App/usbd_audio_if.c **** {
+ 207              		.loc 1 259 1 is_stmt 1 view -0
+ 208              		.cfi_startproc
+ 209              		@ args = 0, pretend = 0, frame = 0
+ 210              		@ frame_needed = 0, uses_anonymous_args = 0
+ 211 0000 08B5     		push	{r3, lr}
+ 212              	.LCFI0:
+ARM GAS  C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s 			page 9
+
+
+ 213              		.cfi_def_cfa_offset 8
+ 214              		.cfi_offset 3, -8
+ 215              		.cfi_offset 14, -4
+ 260:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE BEGIN 7 */
+ 261:USB_DEVICE/App/usbd_audio_if.c ****   USBD_AUDIO_Sync(&hUsbDeviceFS, AUDIO_OFFSET_FULL);
+ 216              		.loc 1 261 3 view .LVU41
+ 217 0002 0221     		movs	r1, #2
+ 218 0004 0148     		ldr	r0, .L10
+ 219 0006 FFF7FEFF 		bl	USBD_AUDIO_Sync
+ 220              	.LVL12:
+ 262:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE END 7 */
+ 263:USB_DEVICE/App/usbd_audio_if.c **** }
+ 221              		.loc 1 263 1 is_stmt 0 view .LVU42
+ 222 000a 08BD     		pop	{r3, pc}
+ 223              	.L11:
+ 224              		.align	2
+ 225              	.L10:
+ 226 000c 00000000 		.word	hUsbDeviceFS
+ 227              		.cfi_endproc
+ 228              	.LFE141:
+ 230              		.section	.text.HalfTransfer_CallBack_FS,"ax",%progbits
+ 231              		.align	1
+ 232              		.global	HalfTransfer_CallBack_FS
+ 233              		.syntax unified
+ 234              		.thumb
+ 235              		.thumb_func
+ 236              		.fpu fpv4-sp-d16
+ 238              	HalfTransfer_CallBack_FS:
+ 239              	.LFB142:
+ 264:USB_DEVICE/App/usbd_audio_if.c **** 
+ 265:USB_DEVICE/App/usbd_audio_if.c **** /**
+ 266:USB_DEVICE/App/usbd_audio_if.c ****   * @brief  Manages the DMA Half transfer complete event.
+ 267:USB_DEVICE/App/usbd_audio_if.c ****   * @retval None
+ 268:USB_DEVICE/App/usbd_audio_if.c ****   */
+ 269:USB_DEVICE/App/usbd_audio_if.c **** void HalfTransfer_CallBack_FS(void)
+ 270:USB_DEVICE/App/usbd_audio_if.c **** {
+ 240              		.loc 1 270 1 is_stmt 1 view -0
+ 241              		.cfi_startproc
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 0, uses_anonymous_args = 0
+ 244 0000 08B5     		push	{r3, lr}
+ 245              	.LCFI1:
+ 246              		.cfi_def_cfa_offset 8
+ 247              		.cfi_offset 3, -8
+ 248              		.cfi_offset 14, -4
+ 271:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE BEGIN 8 */
+ 272:USB_DEVICE/App/usbd_audio_if.c ****   USBD_AUDIO_Sync(&hUsbDeviceFS, AUDIO_OFFSET_HALF);
+ 249              		.loc 1 272 3 view .LVU44
+ 250 0002 0121     		movs	r1, #1
+ 251 0004 0148     		ldr	r0, .L14
+ 252 0006 FFF7FEFF 		bl	USBD_AUDIO_Sync
+ 253              	.LVL13:
+ 273:USB_DEVICE/App/usbd_audio_if.c ****   /* USER CODE END 8 */
+ 274:USB_DEVICE/App/usbd_audio_if.c **** }
+ 254              		.loc 1 274 1 is_stmt 0 view .LVU45
+ 255 000a 08BD     		pop	{r3, pc}
+ 256              	.L15:
+ARM GAS  C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s 			page 10
+
+
+ 257              		.align	2
+ 258              	.L14:
+ 259 000c 00000000 		.word	hUsbDeviceFS
+ 260              		.cfi_endproc
+ 261              	.LFE142:
+ 263              		.global	USBD_AUDIO_fops_FS
+ 264              		.section	.data.USBD_AUDIO_fops_FS,"aw"
+ 265              		.align	2
+ 268              	USBD_AUDIO_fops_FS:
+ 269 0000 00000000 		.word	AUDIO_Init_FS
+ 270 0004 00000000 		.word	AUDIO_DeInit_FS
+ 271 0008 00000000 		.word	AUDIO_AudioCmd_FS
+ 272 000c 00000000 		.word	AUDIO_VolumeCtl_FS
+ 273 0010 00000000 		.word	AUDIO_MuteCtl_FS
+ 274 0014 00000000 		.word	AUDIO_PeriodicTC_FS
+ 275 0018 00000000 		.word	AUDIO_GetState_FS
+ 276              		.text
+ 277              	.Letext0:
+ 278              		.file 2 "d:\\program files\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\
+ 279              		.file 3 "d:\\program files\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\
+ 280              		.file 4 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
+ 281              		.file 5 "Middlewares/ST/STM32_USB_Device_Library/Class/AUDIO/Inc/usbd_audio.h"
+ 282              		.file 6 "USB_DEVICE/App/usbd_audio_if.h"
+ARM GAS  C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 usbd_audio_if.c
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:18     .text.AUDIO_Init_FS:00000000 $t
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:25     .text.AUDIO_Init_FS:00000000 AUDIO_Init_FS
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:47     .text.AUDIO_DeInit_FS:00000000 $t
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:53     .text.AUDIO_DeInit_FS:00000000 AUDIO_DeInit_FS
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:72     .text.AUDIO_AudioCmd_FS:00000000 $t
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:78     .text.AUDIO_AudioCmd_FS:00000000 AUDIO_AudioCmd_FS
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:100    .text.AUDIO_VolumeCtl_FS:00000000 $t
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:106    .text.AUDIO_VolumeCtl_FS:00000000 AUDIO_VolumeCtl_FS
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:125    .text.AUDIO_MuteCtl_FS:00000000 $t
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:131    .text.AUDIO_MuteCtl_FS:00000000 AUDIO_MuteCtl_FS
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:150    .text.AUDIO_PeriodicTC_FS:00000000 $t
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:156    .text.AUDIO_PeriodicTC_FS:00000000 AUDIO_PeriodicTC_FS
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:177    .text.AUDIO_GetState_FS:00000000 $t
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:183    .text.AUDIO_GetState_FS:00000000 AUDIO_GetState_FS
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:198    .text.TransferComplete_CallBack_FS:00000000 $t
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:205    .text.TransferComplete_CallBack_FS:00000000 TransferComplete_CallBack_FS
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:226    .text.TransferComplete_CallBack_FS:0000000c $d
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:231    .text.HalfTransfer_CallBack_FS:00000000 $t
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:238    .text.HalfTransfer_CallBack_FS:00000000 HalfTransfer_CallBack_FS
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:259    .text.HalfTransfer_CallBack_FS:0000000c $d
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:268    .data.USBD_AUDIO_fops_FS:00000000 USBD_AUDIO_fops_FS
+C:\Users\cy023\AppData\Local\Temp\ccHDHe3d.s:265    .data.USBD_AUDIO_fops_FS:00000000 $d
+
+UNDEFINED SYMBOLS
+USBD_AUDIO_Sync
+hUsbDeviceFS
