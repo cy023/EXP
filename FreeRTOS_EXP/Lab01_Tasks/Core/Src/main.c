@@ -44,7 +44,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+#define DWT_CTRL	(*(volatile uint32_t *)0xE0001000)
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -92,6 +92,13 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
+
+  // Enable the CYCCNT counter
+  DWT_CTRL |= (1 << 0);
+
+  SEGGER_SYSVIEW_Conf();
+  SEGGER_SYSVIEW_Start();
+
   status = xTaskCreate(task1_handler, "Task1", 200, "Hello world form Task-1", 2, &task1_handle);
   configASSERT(status == pdPASS);
 
@@ -300,7 +307,7 @@ static void task1_handler(void *parameter)
 {
 	while (1) {
 		printf("%s\n", (char *)parameter);
-		taskYIELD()
+		taskYIELD();
 	}
 }
 
