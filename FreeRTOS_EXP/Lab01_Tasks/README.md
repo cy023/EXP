@@ -11,4 +11,10 @@
 - 將 SYS 的時脈從 systick 改為其他 timer (TIM6)
 - NVIC 內 Priority group 選為 4 bits for pre-emption priority 0 bits for subpriority
 
+- 利用 SystemView 觀察 Task 運行
+1. Pre-emption + no forced context switch
+2. no Pre-emption + forced context switch (taskYIELD)
+
 # Lab02
+
+
