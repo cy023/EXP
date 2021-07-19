@@ -54,5 +54,5 @@ int main(int argc, char *argv[])
     // long z = atoi(argv[3]);
     // long w = switch_eg(x, y, z);
     // printf("x = %ld, y = %ld, z = %ld --> %ld\n", x, y, z, w);
-    exit(0);
+    return 0;
 }
