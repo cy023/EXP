@@ -24,7 +24,7 @@ long absdiff(long x, long y)
 }
 
 // | x - y |
-// goto version
+// jump version
 long absdiff_j(long x, long y)
 {
     long result;
@@ -39,7 +39,7 @@ long absdiff_j(long x, long y)
 }
 
 // | x - y |
-// what...
+// conditional moves
 long absdiff_cm(long x, long y)
 {
     long result;
