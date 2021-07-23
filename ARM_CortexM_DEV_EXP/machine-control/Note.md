@@ -193,7 +193,24 @@ long pcount_goto_dw(unsigned long x)
 }
 ```
 
-### goto-jtm version
+```
+pcount_goto_dw:
+	mov	r3, r0
+	cbz	r0, .L12
+	movs	r0, #0
+.L11:
+	and	r2, r3, #1
+	add	r0, r0, r2
+	lsrs	r3, r3, #1
+	bne	.L11
+	bx	lr
+.L12:
+	movs	r0, #0
+.L10:
+	bx	lr
+```
+
+### goto-jump-to-middle version
 ```c
 long pcount_goto_jtm(unsigned long x) {
     long result = 0;
@@ -206,12 +223,26 @@ long pcount_goto_jtm(unsigned long x) {
         goto loop;
     return result;
 }
+```
 
-#define WSIZE 8*sizeof(unsigned long)
+```
+pcount_goto_jtm:
+	mov	r3, r0
+	movs	r0, #0
+.L14:
+	cbz	r3, .L13
+	and	r2, r3, #1
+	add	r0, r0, r2
+	lsrs	r3, r3, #1
+	b	.L14
+.L13:
+	bx	lr
 ```
 
 ### for version
 ```c
+#define WSIZE 8*sizeof(unsigned long)
+
 long pcount_for(unsigned long x) {
     size_t i;
     long result = 0;
@@ -223,7 +254,24 @@ long pcount_for(unsigned long x) {
 }
 ```
 
-### for goto down version
+```
+pcount_for:
+	mov	r1, r0
+	movs	r0, #0
+	mov	r3, r0
+.L17:
+	cmp	r3, #31
+	bhi	.L19
+	lsr	r2, r1, r3
+	and	r2, r2, #1
+	add	r0, r0, r2
+	adds	r3, r3, #1
+	b	.L17
+.L19:
+	bx	lr
+```
+
+### for-goto-do-while version
 ```c
 long pcount_for_goto_dw(unsigned long x) {
     size_t i;
@@ -244,7 +292,23 @@ long pcount_for_goto_dw(unsigned long x) {
 }
 ```
 
-### for goto jtm version
+```
+pcount_for_goto_dw:
+	mov	r1, r0
+	movs	r0, #0
+	mov	r3, r0
+.L21:
+	lsr	r2, r1, r3
+	and	r2, r2, #1
+	add	r0, r0, r2
+	adds	r3, r3, #1
+	cmp	r3, #31
+	bls	.L21
+	bx	lr
+.L22:
+```
+
+### for-goto-jump-to-middle version
 ```c
 long pcount_for_goto_jtm(unsigned long x) {
     size_t i;
@@ -262,3 +326,21 @@ long pcount_for_goto_jtm(unsigned long x) {
         goto loop;
     return result;
 }
+```
+
+```
+pcount_for_goto_jtm:
+	mov	r1, r0
+	movs	r0, #0
+	mov	r3, r0
+.L24:
+	cmp	r3, #31
+	bhi	.L23
+	lsr	r2, r1, r3
+	and	r2, r2, #1
+	add	r0, r0, r2
+	adds	r3, r3, #1
+	b	.L24
+.L23:
+	bx	lr
+```

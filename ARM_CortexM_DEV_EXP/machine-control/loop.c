@@ -38,7 +38,7 @@ long pcount_while(unsigned long x)
 }
 
 // popcount
-// goto-down version
+// goto-do-while version
 long pcount_goto_dw(unsigned long x)
 {
     long result = 0;
@@ -54,7 +54,7 @@ long pcount_goto_dw(unsigned long x)
 }
 
 // popcount
-// goto-jtm version
+// goto-jump_to_middle version
 long pcount_goto_jtm(unsigned long x) {
     long result = 0;
     goto test;
@@ -82,7 +82,7 @@ long pcount_for(unsigned long x) {
 }
 
 // popcount
-// for goto down version
+// for-goto-do-while version
 long pcount_for_goto_dw(unsigned long x) {
     size_t i;
     long result = 0;
@@ -102,7 +102,7 @@ long pcount_for_goto_dw(unsigned long x) {
 }
 
 // popcount
-// for goto jtm version
+// for-goto-jump-to-middle version
 long pcount_for_goto_jtm(unsigned long x) {
     size_t i;
     long result = 0;
