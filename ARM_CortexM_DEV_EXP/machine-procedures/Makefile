@@ -1,33 +1,36 @@
-CC=gcc
-CFLAGS= -Og -Wall
-COFLAGS = -O1 -Wall
-CINC =
-F64 =-m64
+CC = arm-none-eabi-gcc
+
+MCU     = -mcpu=cortex-m4
+THUMB   = -mthumb
+
+OFLAGS  = -Og
+O1FLAGS = -O1
+
+CFLAGS = $(MCU) $(THUMB) -std=gnu99 -Wall
+
+NCMOV = -fno-if-conversion
+
+.SUFFIXES: .c .s .bs .O1s .o .d
+
+.c.s:
+	$(CC) $(CFLAGS) $(OFLAGS) -S $*.c -o $*.s
+
+.c.O1s:
+	$(CC) $(CFLAGS) $(O1FLAGS) -S $*.c -o $*.O1s
+
+.c.d:
+	$(CC) $(CFLAGS) $(OFLAG) --specs=nosys.specs $*.c -o $*.elf
+	arm-none-eabi-objdump -d $*.elf > $*.d
+	rm -f $*.elf
 
 
-.SUFFIXES: .c .64s .O1-64s .64o .64d
+files:	incr.s mstore-exe.d recurse.s
 
-
-.c.64s:
-	$(CC) $(CFLAGS) $(CINC) -S $(F64) $*.c -o $*.64s
-
-.c.O1-64s:
-	$(CC) $(COFLAGS) $(CINC) -S $(F64) $*.c -o $*.O1-64s
-
-.c.64d:
-	$(CC) $(CFLAGS) $(CINC) $(F64) $*.c -o $*
-	objdump -d $* > $*.64d
-	rm -f $*
-
-files:	incr.64s mstore-exe.64d recurse.64s
-
-mstore-exe.64d: mstore.c main.c
-	$(CC) $(CFLAGS) $(CINC) $(F64) mstore.c main.c -o mstore
-	objdump -d mstore > mstore-exe.64d
-	rm -f mstore
+mstore-exe.d: mstore.c main.c
+	$(CC) $(CFLAGS) $(OFLAG) --specs=nosys.specs mstore.c main.c -o mstore-exe.elf
+	arm-none-eabi-objdump -d $*.elf > $*.d
+	rm -f $*.elf
 
 clean:
-	rm -f *~
-	rm -f *.64s *.64o *.64d
+	rm -f *~ *.s *.o *.d
 	rm -f incr mstore
-
